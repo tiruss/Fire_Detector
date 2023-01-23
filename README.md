@@ -10,6 +10,7 @@ conda activate fire_detector
 * Clone the code
 ```bash
 git clone https://github.com/tiruss/Fire_Detector.git
+cd Fire_Detector
 git clone https://github.com/ultralytics/yolov5.git
 cd yolov5
 pip install -r requirements.txt
