@@ -22,6 +22,19 @@ pip install -r requirements.txt
 
 ## 3. Convert XML format to TEXT format
 
+* Run xml2yolo_text.py
+```bash
+python xml2yolo_text.py
+```
+
 ## 4. Train the YOLOv5 Model
+* Run train.py
+```bash
+python train.py
+```
 
 ## 5. Test Trained Network
+* Run test.py
+```bash
+python test.py
+```
