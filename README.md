@@ -17,12 +17,10 @@ pip install -r requirements.txt
 
 ## 2. Download Dataset
 
-* Download Fire Dataset
-
-https://drive.google.com/drive/folders/15fuHCUKZIUmEXrBdnE-E8W3DHREoDI5e?usp=share_link
+* Download Fire Dataset [[Download]](https://drive.google.com/drive/folders/15fuHCUKZIUmEXrBdnE-E8W3DHREoDI5e?usp=share_link)
 
 ## 3. Convert XML format to TEXT format
 
 ## 4. Train the YOLOv5 Model
 
-## 5. Visualize the Results
+## 5. Test Trained Network
