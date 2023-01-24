@@ -35,7 +35,7 @@ python train.py --data fire.yaml --cfg yolov5s.yaml --weights yolov5s.pt --batch
 ```
 
 ## 5. Test Trained Network
-* Run test.py
+* Run detect.py
 ```bash
-python test.py
+python detect.py --source [YOUR VIDEO] --weights [YOUR WEIGHT] --conf 0.4
 ```
