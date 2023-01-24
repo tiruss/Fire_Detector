@@ -14,6 +14,7 @@ cd Fire_Detector
 git clone https://github.com/ultralytics/yolov5.git
 cd yolov5
 pip install -r requirements.txt
+pip install pytube # for downloading youtube video
 ```
 
 ## 2. Download Dataset
@@ -35,6 +36,10 @@ python train.py --data fire.yaml --cfg yolov5s.yaml --weights yolov5s.pt --batch
 ```
 
 ## 5. Test Trained Network
+* Download youtube video
+```
+python youtube_download.py
+```
 * Run detect.py
 ```bash
 python detect.py --source [YOUR VIDEO] --weights [YOUR WEIGHT] --conf 0.4
