@@ -28,7 +28,7 @@ python xml2yolo_text.py
 ```
 
 ## 4. Train the YOLOv5 Model
-* Run train.py
+* Run train.py with proper dataset path 
 ```bash
 python train.py
 ```
