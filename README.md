@@ -32,7 +32,11 @@ python xml2yolo_text.py
 * Run train.py with proper dataset path 
 * You can change the hyperparameters in train.py [[YOLOv5]](https://github.com/ultralytics/yolov5)
 ```bash
-python train.py --data fire.yaml --cfg yolov5s.yaml --weights yolov5s.pt --batch-size 16 --epochs 10
+python train.py --data fire.yaml --cfg yolov5s.yaml --weights '' --batch-size 16 --epochs 100
+```
+* Track your training process on the tensorboard
+```bash
+tensorboard --logdir runs/train
 ```
 
 ## 5. Test Trained Network

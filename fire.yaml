@@ -1,0 +1,9 @@
+
+train: ../fire-dataset/train/images
+val: ../fire-dataset/validation/images
+
+nc: 1
+names:
+  0: fire
+
+

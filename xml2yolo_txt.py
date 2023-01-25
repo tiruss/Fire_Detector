@@ -68,32 +68,33 @@ try:
 except NameError:
     pass
 
-dirpath = input("Directory path with XML files: ")
-classes_txt = input("File containing classes: ")
-ext = input("Image file extension: ")
+
+parentpath = './yolov5/' #"Directory path with parent dir before xml_dir or img_dir"
+addxmlpath = parentpath + 'fire-dataset/validation/annotations' #"Directory path with XML files"
+addimgpath = parentpath + 'fire-dataset/validation/images' #"Directory path with IMG files"
+outputpath = parentpath + 'labels' #"output folder for yolo format"
+classes_txt = './fire_classes.txt' #"File containing classes"
+ext = '.jpg' #"Image file extension [.jpg or .png]"
+
 
 if os.path.isfile(classes_txt):
     with open(classes_txt, "r") as f:
         class_list = f.read().strip().split()
         classes = {k : v for (v, k) in enumerate(class_list)}
 
-filePaths = glob(dirpath + "/*" + ext)
-# xmlPaths = glob(dirpath + "/*.xml")
+xmlPaths = glob(addxmlpath + "/*.xml")
+os.makedirs(outputpath, exist_ok=True)
 
-for filePath in filePaths:
-    filePath = os.path.splitext(filePath)[0]
+for xmlPath in xmlPaths:
+    tVocParseReader = PascalVocReader(xmlPath)
+    shapes = tVocParseReader.getShapes()
 
-    with open(filePath + ".txt", "w") as f:
-        if not os.path.isfile(filePath + XML_EXT):
-            continue
-
-        tVocParseReader = PascalVocReader(filePath + XML_EXT)
-        shapes = tVocParseReader.getShapes()
-
+    with open(outputpath + "/" + os.path.basename(xmlPath)[:-4] + ".txt", "w") as f:
         for shape in shapes:
             class_name = shape[0]
             box = shape[1]
-            filename = filePath + ext
+            #filename = os.path.splittext(xmlPath)[0] + ext
+            filename = os.path.splitext(addimgpath + "/" + os.path.basename(xmlPath)[:-4])[0] + ext
 
             if class_name not in classes.keys():
                 classes[class_name] = num_classes
@@ -113,7 +114,7 @@ for filePath in filePaths:
             f.write("%d %.06f %.06f %.06f %.06f\n" % (class_idx, xcen, ycen, w, h))
             print(class_idx, xcen, ycen, w, h)
 
-with open(dirpath + "/classes.txt", "w") as f:
+with open(parentpath + "classes.txt", "w") as f:
     for key in classes.keys():
         f.write("%s\n" % key)
         print(key)
