@@ -27,6 +27,7 @@ pip install pytube # for downloading youtube video
 ```bash
 python xml2yolo_text.py
 ```
+* Then put the dataset into 'yolov5/data/fire_dataset'
 
 ## 4. Train the YOLOv5 Model
 * Run train.py with proper dataset path 
